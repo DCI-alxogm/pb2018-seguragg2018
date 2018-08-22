@@ -5,14 +5,14 @@ int main(){
 int a;
 
 printf("Introduce un numero\n");
-scanf("%a",&a);
-if (a%2==0){
-printf(" a=%i es par\n",a);
+scanf("%i",&a);
+if ((a%2)==0){
+printf("El numero %i es par\n",a);
 
 
 }
 else{
-printf("a=%i es impar\n",a);
+printf("El numero %i es impar\n",a);
 
 }
 
