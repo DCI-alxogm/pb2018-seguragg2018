@@ -1,44 +1,36 @@
-#include<stdio.h>
+#include <stdio.h>
+#include <math.h>
 
-int main()
-{
-	float C, K;
-	
-	int i, n, p=1, f, delta;
+int main(){
 
-	printf("Hola!, este es un programa que ejecuta conversiones de temperaturas en intervalos, con un determinado numero de veces\n");
-	
-	while (p==1){
+float e, l, s, c, r, x;
+int i, in, es;
 
-	
-	printf("Elije la temperatura inicial en grados C°\n");
-	scanf("%f",&C);
-	printf("Elije la temperatura final en grados C°\n");
-	scanf("%i",&f);
-		delta = (f - C);
-	printf("Elije el numero de veces que quieres realizar la conversion\n");
-	scanf("%i",&n);
+printf("¡Hola!, este es un programa que evalua algunas funciones, en un intervalo, y con un espaciado\n");
+printf("Selecciona el valor de inicial de x\n");
+scanf("%f", &x);
+printf("Selecciona el intervalo, el valor maximo de x\n");
+scanf("%i",&in);
+printf("Selecciona el espaciado entre cada valor de x\n");
+scanf("%i",&es);
 
+for (i=1; i<=in; i++){
+e = exp(x);
+l = log(x);
+s = sin(x);
+c = cos(x);
+r = sqrt(x);
 
+printf("Exp(%f) = %f\n",x,e);
+printf("Log(%f) = %f\n",x,l);
+printf("Sen(%f) = %f\n",x,s);
+printf("Cos(%f) = %f\n",x,c);
+printf("Raiz cuadrada(%f) = %f\n",x,r);
+printf("Los resultados con x = %f\n",x);
 
-	for (i=0; i<n; i++){
+x= (x+es);
 
-		K=C+273.15;
-		printf("%f %f\n", C, K);
-		C = C + delta;
-			if (i == 10){
-			printf("Error: numero de iteraciones excedidas\n");
-			return 1;
-
-			}
-
-	}
-	
-	printf("Si desea ejecutar el programa nuevamente escriba 1, si no escriba 0\n");
-	scanf("%i",&p);
-	
-	}
-
+}
 
 return 0;
 

@@ -1,24 +1,23 @@
-#include<stdio.h>
-#include<math.h>
+#include <stdio.h>
 
-int main()
-{
+int main(){
 
-	float e;
-	int n=10, j;
+int a, i, r=1, p=1;
 
-	for(j=0;j<n;j++){
-	e = exp(j);
-	printf("%i \t %f\n", j, e);
+while (p==1){
+
+printf("¡Hola!, este es un programa que calcula el factorial de un numero entero\n");
+printf("Introduce el numero\n");
+scanf("%i",&a);
+
+for (i=1; i<=a; i++){ 
+r=r*i;
 
 }
 
-return 0;
+printf("El valor factorial del numero es: %i\n", r);
+printf("Si quieres reiniciar el programa introduce 1, si no 0\n");
+scanf("%i",&p);
 
-
-
-
-
-
-
+}
 }
