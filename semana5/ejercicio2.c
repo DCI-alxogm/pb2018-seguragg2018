@@ -9,8 +9,9 @@ while (p==1){
 printf("¡Hola!, este es un programa que calcula el factorial de un numero entero\n");
 printf("Introduce el numero\n");
 scanf("%i",&a);
-
+r=1;
 for (i=1; i<=a; i++){ 
+
 r=r*i;
 
 }

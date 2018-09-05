@@ -14,7 +14,7 @@ scanf("%i",&in);
 printf("Selecciona el espaciado entre cada valor de x\n");
 scanf("%i",&es);
 
-for (i=1; i<=in; i++){
+for (i=0; i<=in; i++){
 e = exp(x);
 l = log(x);
 s = sin(x);
@@ -29,6 +29,10 @@ printf("Raiz cuadrada(%f) = %f\n",x,r);
 printf("Los resultados con x = %f\n",x);
 
 x= (x+es);
+
+if (x>in){
+return 0;
+}
 
 }
 
