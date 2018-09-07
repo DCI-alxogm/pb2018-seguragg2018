@@ -6,10 +6,13 @@ int main()
 	
 	int i, n, p=1, f, delta;
 
+//Primero, se declaran las variables, usamos tipo float para la temperatura
+
 	printf("Hola!, este es un programa que ejecuta conversiones de temperaturas en intervalos, con un determinado numero de veces\n");
 	
 	while (p==1){
 
+//Utilizamos un while, para no cerrar el ciclo en caso de que el usuario quiera repetirlo
 	
 	printf("Elije la temperatura inicial en grados C°\n");
 	scanf("%f",&C);
@@ -19,6 +22,7 @@ int main()
 	scanf("%i",&n);
 	delta = ((f - C)/n);
 
+//Se escanean las temperaturas y a partir de ahi se saca delta
 
 
 	for (i=0; i<=n; i++){
@@ -32,11 +36,14 @@ int main()
 
 			}
 
+//Se realizan las operaciones en base a un ciclo for, se utilizan for de manera anidadas
+
 	}
 	
 	printf("Si desea ejecutar el programa nuevamente escriba 1, si no escriba 0\n");
 	scanf("%i",&p);
 	
+//Se le pide al usuario si quiere repetir de nuevo la operacion o salir del programa
 	}
 
 
