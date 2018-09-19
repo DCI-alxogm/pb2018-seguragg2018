@@ -1,4 +1,4 @@
 1 elevado a la 2 es igual a 1, y la integral es: 0.000000
-2 elevado a la 2 es igual a 4, y la integral es: 0.000000
-3 elevado a la 2 es igual a 9, y la integral es: 0.000000
-4 elevado a la 2 es igual a 16, y la integral es: 0.000000
+2 elevado a la 2 es igual a 4, y la integral es: 4.975000
+3 elevado a la 2 es igual a 9, y la integral es: 27.820000
+4 elevado a la 2 es igual a 16, y la integral es: 89.354996
