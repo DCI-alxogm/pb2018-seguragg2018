@@ -5,7 +5,7 @@
 int main(){
 
 int cont;
-float *fp, *d, sum, des;
+float *fp, sum, des;
 char var[20];
 
 FILE *l;
@@ -16,39 +16,35 @@ cont ++;
 fclose(l);
 
 
-fp = (float*) malloc(cont * sizeof(float));
-d = (float*) malloc(cont * sizeof(float));
+
 
 FILE *lec;
 lec = fopen("promedio.txt", "r");
+fp = (float*) malloc(cont * sizeof(float));
+
 
 for (int i=0; i<cont; i++){
-fscanf(lec, "%f", &fp[i]);
-sum = sum + fp[i];
+fscanf(lec, "%f", fp + i);
+sum = sum + *(fp + i);
 
 }
 fclose(lec);
 
 sum = sum/cont;
 
+for (int i=0; i<cont; i++){
+des= des + pow((*(fp + i) - sum),2);
 
-FILE *le;
-lec = fopen("promedio.txt", "r");
-
-for (int j=0; j<cont; j++){
-fscanf(le, "%f", &d[j]);
-des = des + pow((d[j]-sum), 2);
 
 }
-fclose(le);
 
 des = (1/cont)*des;
 des = sqrt(des);
 
+free (fp);
 printf("Total de datos: %i\n", cont);
 printf("El promedio total es igual a: %f\n", sum);
 printf("La desviacion standar es igual a: %f\n", des);
-
 
 
 return 0;
