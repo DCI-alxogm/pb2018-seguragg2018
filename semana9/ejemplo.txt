@@ -1,12 +1,9 @@
-
-for (int j=0; j<cont; j++){
-des = des + pow((fp[j]-sum), 2);
+for (int i=0; i<cont; i++){
+des = des + pow((*(fp + i)-sum),2);
 
 }
-
 
 des = (1/cont)*des;
 des = sqrt(des);
 
-
-printf("La desviacion standar es igual a: %f\n", des);
+free (fp);
