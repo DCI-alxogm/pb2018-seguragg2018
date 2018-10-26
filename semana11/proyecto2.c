@@ -2,6 +2,7 @@
 #include<stdlib.h>
 
 double **iniciar(double **m, int a);
+double **lados(double **m, int n, double a, double b, double c, double d);
 void **imp(double **m, int a, int q, double p, double ex);
 
 int main(){
@@ -12,7 +13,7 @@ FILE *leer;
 leer = fopen("base.txt", "r");
 fscanf(leer, "%lf %lf %lf %lf %lf %i", &a, &b, &c, &d, &ex, &n);
 
-
+fclose(leer);
 
 mat = (double **) malloc((n+2)  * sizeof(double*));
 for (int r=0;r<(n+2);r++){
@@ -30,6 +31,7 @@ mat = iniciar(mat, n);
 //}
 //}
 
+/*
 for (int i=0; i<(n+1);i++){
 	
 	mat[i][0]=a;
@@ -39,7 +41,13 @@ for (int i=0; i<(n+1);i++){
 	
 }
 
+*/
+
+
+mat = lados(mat, n, a, b, c, d);
+
 while(p>ex){
+//for (q=0; p>ex; q++){
 
 for (int i = 1; i<(n+1); i++){
 	for (int j=1; j<(n+1); j++){
@@ -60,7 +68,9 @@ e= mat[1][1];
 
 p = eps*100;
 
-imp(mat, n, q, p, ex);
+if (q%10==0 || p<ex){
+imp(mat, n, q/10, p, ex);
+}
 
 q=q+1;
 if (q>500) break;
@@ -79,7 +89,7 @@ if (q>500) break;
 printf("\n%f %f %i\n", ex, p, q);
 
 free(mat);
-fclose(leer);
+
 
 return 0;
 }
@@ -97,12 +107,26 @@ return m;
 
 }
 
+double **lados(double **m, int n, double a, double b, double c, double d){
+for (int i=0; i<(n+1);i++){
+	
+	m[i][0]=a;
+	m[0][i]=b;
+	m[i][n+1]=c;
+	m[n+1][i]=d;
+	
+}
+
+return m;
+
+}
+
 void **imp(double **m, int a, int q, double p, double ex){
 FILE *esc;
 
 if (p>ex){
 char arc[6]={'P','n','.','t','x','t'};
-arc[1]=q+'1';
+arc[1]=q+'A';
 char *hivo;
 hivo = arc;
 esc = fopen(hivo, "w");
@@ -110,6 +134,7 @@ esc = fopen(hivo, "w");
 if (p<ex){
 esc = fopen("Equilibrio_final.txt", "w");
 }
+
 
 for (int i = 1; i < (a+1); i++) {
         for (int j = 1; j < (a+1); j++) {
