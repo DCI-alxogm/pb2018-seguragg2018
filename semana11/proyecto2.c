@@ -73,7 +73,13 @@ imp(mat, n, q/10, p, ex);
 }
 
 q=q+1;
-if (q>500) break;
+
+if (q>500){
+printf("Error, numero de iteraciones exedidas %i\nEl error calculado fue de %f\n",q ,p);
+p = p-100.0;
+imp(mat, n, q/10, p, ex);
+return 0;
+}
 
 }
 
@@ -86,7 +92,8 @@ if (q>500) break;
     }
 */
 
-printf("\n%f %f %i\n", ex, p, q);
+printf("Se hicieron un numero total de %i iteraciones\n", q);
+printf("El error fue de %f que es menor al establecido inicialmente %f\n", p, ex);
 
 free(mat);
 
