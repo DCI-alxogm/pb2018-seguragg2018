@@ -102,3 +102,4 @@ free(mat); //Se libera la memoria
 return 0; //Termina el programa
 }
 
+//Las funciones del programa se encuentran en otro archivo llamado "funciones.c"
