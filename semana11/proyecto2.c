@@ -44,51 +44,61 @@ for (int r=0;r<(n+2);r++){
 	mat[r]= (double *) malloc((n+2) * sizeof(double)); 
 }
 
-//En esta funcion se inicializa la matriz a 0.0 unicamente en la region en donde se va a trabajar, de 1,1 a (n-1),(n-1)
+//En esta funcion se inicializa la matriz a 0.0 unicamente en la region en donde se va a trabajar, de 1,1 a (n+1),(n+1)
 mat = iniciar(mat, n);
 
 //En esta funcion se inicializan los bordes de la matriz con las temperaturas iniciales de la placa, como las temperaturas en los bordes siempre permanecen constantes, al momento de trabajar la matriz, esos puntos no se tocan por el programa, siempre son iguales
 mat = lados(mat, n, a, b, c, d);
 
+
+//Mientras el error minimo sea mayor al error calculado, ejecuta el ciclo
 while(p>ex){
 
-
+	//Se trabaja unicamente con los lugares (1,1) hasta (n+1,n+1), por lo que en resumidas cuentas se trabaja con la matriz de n*n
 	for (int i = 1; i<(n+1); i++){
 		for (int j=1; j<(n+1); j++){
-
+			//Aqui se ejecuta el calculo del promedio, se suman los lados y se divide entre 4 lados, el valor se guarda en el lugar correspondiente de la matriz
 			mat[i][j]= ((mat[i+1][j]+mat[i][j+1]+mat[i-1][j]+mat[i][j-1])/4.0);
 
 		}
 	}
 
-
+	//La variable eps nos sirve para hacer el calculo del error
+	//En eps se guarda el valor de la division del 'valor nuevo'=mat[i][j]-'valor viejo'= e / 'valor nuevo'= mat[i][j]
+	//Se tiene que utilizar la variable 'e', para ir guardando el valor nuevo en ella, y que en la siguiente iteracion este valor sea el valor viejo para asi poder realizar el calculo del error
 	eps= (mat[1][1]-e)/mat[1][1];
 	e= mat[1][1];
 
-
+	//El valor de la division (eps) se multiplica por 100 para asi tener el error calculado, esto se guarda en la variable p
 	p = eps*100;
 
+	//Se establece una condicional para imprimir las iteraciones, ya que si se imprimen todas serian demasiados archivos
+	//Las iteraciones se imprimen cada 10, o cuando el error calculado es menor al error inicial y por lo tanto la placa esta en equilibrio
 	if (q%10==0 || p<ex){
 		imp(mat, n, q/10, p, ex);
 	}
-
+	
+	//El contador suma 1 en cada iteracion
 	q=q+1;
+	
 
+	//Se establece una condicional de paro, si q es mayor a 500 iteraciones el programa imprime la matriz y arroja un mensaje de error
 	if (q>500){
 		printf("Error, numero de iteraciones exedidas %i\nEl error calculado fue de %f\n",q ,p);
-		p = p-100.0;
+		p = p-100.0; //Esta suma se hace para que en la funcion imp, el archivo que se imprime lleve el nombre de Equilibrio_termico.txt, aunque este no este en equilibrio, pero es necesario para saber cual fue el ultimo archivo impreso
 		imp(mat, n, q/10, p, ex);
-		return 0;
+		return 0; //Termina el programa
 	}
 
 }
 
+//Si todo sale bien y no hay error el programa arroja un resultado final con el numero de iteraciones y los errores
 printf("Se hicieron un numero total de %i iteraciones\n", q);
 printf("El error fue de %f que es menor al establecido inicialmente %f\n", p, ex);
 
-free(mat);
+free(mat); //Se libera la memoria
 
 
-return 0;
+return 0; //Termina el programa
 }
 
