@@ -1,0 +1,7 @@
+En esta semana, vimos una nueva herramienta en c, el uso de librerias para declarar las funciones, lo que se hace es crear un archivo llamado "Makefile", en donde se encuentran las ordenes de compilacion de nuestro programa. Las funciones se declaran dentro de una carpeta, con la extension ".h", que es propia de una libreria de c. Despues en la funcion main, solo se incluye la libreria, ya no se tienen que declarar las funciones, y en el archivo donde estan las funciones, nuevamente se incluye la libreria, y se hacen las funciones. Cuando vamos a compilar lo unico que tenemos que haces es colocar el comando "make", y automaticamente se ejecutan las instrucciones contenidas en "Makefile", las instrucciones son diferentes pues se tiene que poner explicitamente que se incluira la carpeta con las librerias, las instrucciones quedarian asi: 'gcc -o ejemplo.o ej_main.c ej_func.c -I ./libs', en donde libs es la carpeta y los demas son los archivos. 
+
+Ejemplo:
+El programa nos introduce al "Makefile", lo que hace es evaluar la funcion cuadratica, y te da la opcion de regresar y hacerlo de nuevo o salir del programa.
+
+Ejercicio:
+Este programa es mucho mas complejo que el anterior. El ejercicio consistia en modificar el proyecto pasado y hacerlo de manera que utilicemos "Makefile", la verdad no tiene mucha complejidad, se declararon las funciones en una libreria llamada "define.h" y en el main y en las funciones se incluyo esa libreria, se modifico el "Makefile", para que incluyera los archivos correspondientes y listo. 
