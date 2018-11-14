@@ -1,0 +1,4 @@
+En esta semana aprendimos a utilizar algunos comandos de python
+
+Ejercicio Circulos:
+El ejercicio consistia en calcular algunos puntos aleatorios y tomar estos como centros, y calcular circunferencias. Para esto se utilizan dos ciclos for, uno adentro de otro; el ciclo principal calcula los centros aleatorios y el ciculo identado calcula los puntos alrededor de estos. Para calcular los puntos random, se utiliza el comando 'np.random.rand', y se calculan en primero en x, luego en y, y se imprime el punto en color negro. Despues de esto el otro ciclo for hace uso de las coordenadas polares, estas dependen del angulo y el radio, por lo que se usan las funciones trigonometricas seno y coseno para calcular los puntos. Para imprimir, se suman los valores de la circunferencia al centro calculado.
